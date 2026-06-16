@@ -1,0 +1,136 @@
+/* ── InicioBanner.css ── */
+
+.banner {
+  position: relative;
+  /* rompe cualquier max-width del contenedor padre */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  height: 100svh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Imagen de fondo — la url viene como inline style desde el JSX */
+.banner__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 40%;
+  filter: brightness(0.45);
+}
+
+/* Gradiente de legibilidad */
+.banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.55) 55%,
+    rgba(0, 0, 0, 0.10) 100%
+  );
+}
+
+/* Contenido alineado a la izquierda */
+.banner__content {
+  position: relative;
+  z-index: 1;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  max-width: 560px;
+  width: 100%;
+  margin-top: 64px;
+  text-align: left;
+}
+
+.banner__title {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #fff;
+  margin: 0 0 1rem 0;   /* sin margin-top para que no haya espacio extra arriba */
+}
+
+.banner__description {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  font-weight: 400;
+  margin: 0 0 2rem 0;
+  max-width: 420px;
+}
+
+/* CTAs */
+.banner__ctas {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  background: #e63939;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover {
+  background: #cc2c2c;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active { transform: translateY(0); }
+
+.btn-primary svg {
+  width: 15px;
+  height: 15px;
+  fill: #fff;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.20);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active { transform: translateY(0); }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .banner__title { font-size: 2.4rem; }
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}

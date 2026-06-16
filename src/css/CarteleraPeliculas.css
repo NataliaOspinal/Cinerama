@@ -1,0 +1,185 @@
+/* ── CarteleraPeliculas.css ── */
+
+.cp {
+  background: #0a0a0a;
+  padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 4rem;
+}
+
+/* ── Panel de filtros ── */
+.cp__filtros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem 1.5rem;
+  background: #161616;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.filtro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filtro__label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #e63939;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.filtro__icono {
+  display: flex;
+  align-items: center;
+}
+
+.filtro__icono svg {
+  width: 13px;
+  height: 13px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.filtro__select-wrap {
+  position: relative;
+}
+
+.filtro__select {
+  width: 100%;
+  appearance: none;
+  background: #1e1e1e;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 0.65rem 2.2rem 0.65rem 0.9rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.18s;
+}
+
+.filtro__select:focus {
+  outline: none;
+}
+
+/* Motora/Cognitiva: Estado de foco altamente visible para los filtros */
+.filtro__select:focus-visible {
+  outline: 2px solid #e63939;
+  outline-offset: 2px;
+  border-color: transparent;
+}
+
+.filtro__chevron {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  stroke: rgba(255, 255, 255, 0.5);
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+/* ── Grid de películas ── */
+.cp__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── Tarjeta ── */
+.cp-tarjeta {
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  /* Reset de estilos base de <button> */
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+  font-family: inherit;
+  width: 100%;
+  display: block;
+}
+
+.cp-tarjeta:hover { transform: translateY(-4px); }
+
+.cp-tarjeta__img-wrap {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.6rem;
+  background: #1a1a1a;
+}
+
+.cp-tarjeta__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.cp-tarjeta:hover .cp-tarjeta__img { transform: scale(1.04); }
+
+.cp-tarjeta__clasificacion {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(4px);
+}
+
+.cp-tarjeta__titulo {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Accesibilidad Motora: Foco visible en la tarjeta */
+.cp-tarjeta:focus-visible {
+  outline: 3px solid #e63939;
+  outline-offset: 6px;
+  border-radius: 10px;
+}
+
+.cp-tarjeta:hover { transform: translateY(-4px); }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .cp__filtros { grid-template-columns: repeat(2, 1fr); }
+  .cp__grid    { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .cp__filtros { grid-template-columns: 1fr; }
+  .cp__grid    { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 420px) {
+  .cp__grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,137 @@
+/* ── Footer.css ── */
+
+.footer {
+  background: #0d0d0d;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 3rem clamp(1.5rem, 5vw, 4rem) 2.5rem;
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.6fr 1.6fr;
+  gap: 2.5rem clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+/* ── Columna 1: marca ── */
+.footer__logo {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.footer__logo--red  { color: #e63939; }
+.footer__logo--blue { color: #4a90d9; }
+
+.footer__copy {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Columnas de links ── */
+.footer__heading {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0 0 1.1rem 0;
+}
+
+.footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer__links a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.18s;
+  line-height: 1.4;
+}
+
+.footer__links a:hover { color: #fff; }
+
+/* Libro de reclamaciones con ícono */
+.footer__reclamaciones {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer__reclamaciones svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* ── Redes sociales ── */
+.footer__redes {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  justify-content: center;
+}
+
+.footer__redes a {
+  color: rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  transition: color 0.18s;
+}
+
+.footer__redes a:hover { color: #fff; }
+
+.footer__redes svg {
+  width: 19px;
+  height: 19px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* X/Twitter y Facebook usan fill, no stroke */
+.footer__redes a:first-child svg,
+.footer__redes a:last-child svg {
+  stroke: none;
+  fill: currentColor;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Accesibilidad: Indicadores de Foco tecla tab ── */
+.footer__logo:focus-visible,
+.footer__links a:focus-visible,
+.footer__reclamaciones:focus-visible,
+.footer__redes a:focus-visible {
+  outline: 2px solid #e63939; /* Borde rojo */
+  outline-offset: 4px;
+  border-radius: 4px;
+}

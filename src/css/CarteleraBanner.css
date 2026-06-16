@@ -1,0 +1,41 @@
+/* ── CarteleraBanner.css ── */
+
+.cbanner {
+  position: relative;
+  width: 100%;
+  padding: 3.5rem clamp(1.5rem, 1vw, 4rem) 3rem;
+  overflow: hidden;
+}
+
+/* Gradiente rojo → morado → azul acero */
+.cbanner__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    #c0392b 0%,
+    #9b3a6e 40%,
+    #6a7fb5 75%,
+    #7fa3c0 100%
+  );
+  opacity: 0.92;
+}
+
+.cbanner__content {
+  position: relative;
+  z-index: 1;
+}
+
+.cbanner__titulo {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.4rem 0;
+}
+
+.cbanner__subtitulo {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1rem;
+  margin: 0;
+}

@@ -1,0 +1,221 @@
+/* ── Cartelera.css ── */
+
+.cartelera {
+  background: #0a0a0a;
+  padding: 3rem clamp(1.5rem, 5vw, 4rem) 4rem;
+  min-height: 100vh;
+}
+
+/* Header: título + filtros */
+.cartelera__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cartelera__titulo {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.cartelera__filtros {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ── Dropdown ── */
+.dropdown {
+  position: relative;
+}
+
+.dropdown__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #e63939;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.dropdown__btn:hover {
+  background: rgba(230, 57, 57, 0.1);
+}
+
+.dropdown__icono {
+  display: flex;
+  align-items: center;
+  color: #e63939;
+}
+
+.dropdown__icono svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dropdown__chevron {
+  width: 13px;
+  height: 13px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-left: 2px;
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  list-style: none;
+  min-width: 200px;
+  z-index: 50;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown__opcion {
+  display: block;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.dropdown__opcion:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+
+.dropdown__opcion.activa {
+  color: #e63939;
+  font-weight: 600;
+}
+
+/* Accesibilidad */
+
+.dropdown__btn:focus-visible,
+.dropdown__opcion:focus-visible {
+  outline: 2px solid #e63939;
+  outline-offset: 2px;
+}
+
+/* ── Grid de películas ── */
+.cartelera__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── Tarjeta ── */
+.tarjeta {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #111;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  /* Reset de estilos de botón */
+  border: none;
+  padding: 0;
+  text-align: left;
+  font-family: inherit;
+  display: block;
+  width: 100%;
+}
+
+/* Tarjeta Accesibilidad */
+.tarjeta:focus-visible {
+  outline: 3px solid #e63939;
+  outline-offset: 6px;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+.tarjeta__img-wrap {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+
+.tarjeta__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.tarjeta:hover .tarjeta__img {
+  transform: scale(1.04);
+}
+
+.tarjeta__clasificacion {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(4px);
+}
+
+.tarjeta__info {
+  padding: 0.65rem 0.75rem 0.75rem;
+}
+
+.tarjeta__titulo {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .cartelera__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .cartelera__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 420px) {
+  .cartelera__grid { grid-template-columns: 1fr; }
+}
